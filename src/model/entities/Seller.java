@@ -1,7 +1,7 @@
-package entities;
+package model.entities;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class Seller implements Serializable{ 
 	
@@ -11,18 +11,17 @@ public class Seller implements Serializable{
 	private String name;
 	private String email;
 	private Date birthDate;
+	private Department department;
 	
-	public Seller(int id, String name, String email, Date birthDate) {
+	
+	
+	public Seller(int id, String name, String email, Date birthDate, Department department) {
 		super();
-		setId(id);
-		setName(name);
-		setEmail(email);
-		setBirthDate(birthDate);
-	}	
-	
-	@Override
-	public String toString() {
-		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + "]";
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.birthDate = birthDate;
+		this.department = department;
 	}
 	public int getId() {
 		return id;
@@ -47,8 +46,19 @@ public class Seller implements Serializable{
 	}
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
+	}	
+	public Department getDepartment() {
+		return department;
 	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}	
 
+	@Override
+	public String toString() {
+		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", department="
+				+ department + "]";
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -88,8 +98,5 @@ public class Seller implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 
 }
